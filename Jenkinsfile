@@ -1,5 +1,7 @@
 pipeline {
-  agent any
+  agent {
+    label 'vish-security-agent'
+  }
   environment {
     APP_NAME = "flask-counter"
   }
