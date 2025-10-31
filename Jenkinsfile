@@ -16,19 +16,19 @@ pipeline {
         '''
       }
     }
-    stage('Run Monitoring Stack') {
+    /*stage('Run Monitoring Stack') {
       steps {
         sh '''
           docker compose -f docker-compose.yml up -d
           sleep 10
         '''
       }
-    }
+    }*/
     stage('Run App Container') {
       steps {
         sh '''
 
-          docker run -d --name ${APP_NAME} --network vish-monitoring_monitoring -p 8010:5000 ${APP_NAME}:latest
+          docker run -d --name ${APP_NAME} --network prom-grafana_monitoring -p 8010:5000 ${APP_NAME}:latest
         '''
       }
     }
