@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    label 'vish-security-agent'
+    label 'akhil-security-agent'
   }
   environment {
     APP_NAME = "flask-counter"
@@ -36,7 +36,7 @@ pipeline {
       steps {
         sh '''
           echo "Prometheus Targets:"
-          curl -s http://34.228.140.38:8006/api/v1/targets | jq '.data.activeTargets'
+          curl -s http://13.222.9.34:8006/api/v1/targets | jq '.data.activeTargets'
         '''
       }
     }
