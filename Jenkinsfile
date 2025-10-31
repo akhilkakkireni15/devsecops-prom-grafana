@@ -25,6 +25,7 @@ pipeline {
     stage('Run App Container') {
       steps {
         sh '''
+          docker rm -f ${APP_NAME} || true
           docker run -d --name ${APP_NAME} --network vish-monitoring_monitoring -p 8010:5000 ${APP_NAME}:latest
         '''
       }
