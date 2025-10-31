@@ -25,7 +25,7 @@ pipeline {
     stage('Run App Container') {
       steps {
         sh '''
-          docker run -d --name ${APP_NAME} --network monitoring-lab_monitoring             -p 5000:5000 ${APP_NAME}:latest
+          docker run -d --name ${APP_NAME} --network monitoring -p 8010:5000 ${APP_NAME}:latest
         '''
       }
     }
