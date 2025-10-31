@@ -41,7 +41,7 @@ pipeline {
     stage('Health Check') {
       steps {
         script {
-          def resp = sh(script: "curl -s -o /dev/null -w '%{http_code}' http://localhost:5000", returnStdout: true).trim()
+          def resp = sh(script: "curl -s -o /dev/null -w '%{http_code}' http://34.228.140.38:8010", returnStdout: true).trim()
           if (resp != '200') {
             error "Application failed health check!"
           } else {
